@@ -18,13 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CourseController {
 	@RequestMapping("/courses")
-	public List<Course> retrieve()
-	{
+	public List<Course> retrieve() {
 		return Arrays.asList(
-				new Course(1,"Full Stack","Astha"),
-				new Course(2,"Devops","Abc"),
-				new Course(3,"Azure","Xyz"),
-				new Course(4,"QA","Astha")
-				);
+				new Course(1, "Full Stack", "Astha"),
+				new Course(2, "Devops", "Abc"),
+				new Course(3, "Azure", "Xyz"),
+				new Course(4, "QA", "Astha"),
+				new Course(4, "QA", "Astha"));
 	}
 }
