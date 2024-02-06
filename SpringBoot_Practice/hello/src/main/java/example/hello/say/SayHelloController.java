@@ -21,6 +21,7 @@ public class SayHelloController {
 		sb.append("<title> My First HTML Page - Changed</title>");
 		sb.append("</head>");
 		sb.append("<body>");
+		sb.append("<hr/>");
 		sb.append("My first html page with body - Changed");
 		sb.append("</body>");
 		sb.append("</html>");
@@ -31,7 +32,7 @@ public class SayHelloController {
 	@RequestMapping("/sayhellojsp")
 	
 	public String sayHellojsp() {
-		return "sayHello";
+		return "login";
 	}
 
 }
