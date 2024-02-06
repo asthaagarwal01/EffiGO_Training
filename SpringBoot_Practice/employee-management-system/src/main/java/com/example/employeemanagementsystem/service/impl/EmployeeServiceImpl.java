@@ -27,7 +27,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public Optional<EmployeeEntity> findById(Long id) {
 		// TODO Auto-generated method stub
-		return employeeRepository.findId(id);
+		return employeeRepository.findById(id);
 	}
 
 	@Override
