@@ -52,7 +52,7 @@ public class EmployeeController {
         employeeService.deleteEmployee(id);
     }
     
-    //using request and response 
+    //using dto - request and response 
     
     @PostMapping("/res")
     public EmployeeResponse saveEmpResponse(@RequestBody EmployeeRequest employeeRequest) {
