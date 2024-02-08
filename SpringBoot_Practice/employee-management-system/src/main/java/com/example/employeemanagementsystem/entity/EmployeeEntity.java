@@ -7,8 +7,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "mt_employee")
 public class EmployeeEntity {
@@ -25,57 +29,8 @@ public class EmployeeEntity {
 	private Date dateOfBirth;
 	@Column(name = "adress")
 	private String address;
+	@ManyToOne
+	@JoinColumn(name = "department_id")
+	private DepartmentEntity department;
 
-	public EmployeeEntity() {
-		super();
-	}
-
-	public EmployeeEntity(long id, String name, String gender, Date dateOfBirth, String address) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.gender = gender;
-		this.dateOfBirth = dateOfBirth;
-		this.address = address;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-
-	public Date getDateOfBirth() {
-		return dateOfBirth;
-	}
-
-	public void setDateOfBirth(Date dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
 }
