@@ -3,13 +3,16 @@ package com.example.employeemanagementsystem.dto.request;
 import java.io.Serializable;
 import java.util.Date;
 
+import lombok.Data;
+
+
 public class EmployeeRequest implements Serializable{
 	private String name;
     private String gender;
     private Date dateOfBirth;
     private String Address;
 
-    public String getName() {
+   public String getName() {
         return name;
     }
 
