@@ -1,12 +1,11 @@
 package example.LearningPortal.entity;
 
-import java.time.LocalDateTime;
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -15,12 +14,15 @@ import lombok.Data;
 @AllArgsConstructor
 public class EnrollmentEntity {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="enrollmentId")
-	private Long enrollmentId;
-	@Column(name = "created_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-	private LocalDateTime createdOn;
-	@Column(name = "updated_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
-	private LocalDateTime updatedOn;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long enrollmentId;
+
+    @ManyToOne
+    @JoinColumn(name = "learner_id")
+    private UsersEntity learner;
+
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    private CourseEntity course;
 
 }
