@@ -54,7 +54,7 @@ public class EmployeeController {
     
     //using dto - request and response 
     
-    @PostMapping("/res")
+   /* @PostMapping("/res")
     public EmployeeResponse saveEmpResponse(@RequestBody EmployeeRequest employeeRequest) {
         return employeeService.saveEmployee(employeeRequest);
     }
@@ -62,5 +62,5 @@ public class EmployeeController {
     @PutMapping("/res/{id}")
     public EmployeeResponse updateEmpResponse(@RequestBody EmployeeRequest employeeRequest, @PathVariable("id") Long id) {
         return employeeService.updateEmployee(employeeRequest, id);
-    }
+    }*/
 }

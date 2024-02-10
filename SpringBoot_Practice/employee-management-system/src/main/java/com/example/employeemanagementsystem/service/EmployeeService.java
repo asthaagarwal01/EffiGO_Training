@@ -15,7 +15,7 @@ public interface EmployeeService {
 	void deleteEmployee(Long id);
 	
 	//using dto
-	EmployeeResponse saveEmployee(EmployeeRequest employeeRequest);
-    EmployeeResponse updateEmployee(EmployeeRequest employeeRequest, Long id);
+	/*EmployeeResponse saveEmployee(EmployeeRequest employeeRequest);
+    EmployeeResponse updateEmployee(EmployeeRequest employeeRequest, Long id);*/
 	
 }

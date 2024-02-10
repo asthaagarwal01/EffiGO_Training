@@ -15,43 +15,40 @@ import com.example.employeemanagementsystem.service.EmployeeService;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-	private final EmployeeRepository employeeRepository;
+    private final EmployeeRepository employeeRepository;
 
-	public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
-		this.employeeRepository = employeeRepository;
-	}
+    public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
+    }
 
-	@Override
-	public List<EmployeeEntity> findAllEmployee() {
-		// TODO Auto-generated method stub
-		return employeeRepository.findAll();
-	}
+    @Override
+    public List<EmployeeEntity> findAllEmployee() {
+        return employeeRepository.findAll();
+    }
 
-	@Override
-	public Optional<EmployeeEntity> findById(Long id) {
-		// TODO Auto-generated method stub
-		return employeeRepository.findById(id);
-	}
+    @Override
+    public Optional<EmployeeEntity> findById(Long id) {
+        return employeeRepository.findById(id);
+    }
 
-	@Override
-	public EmployeeEntity saveEmployee(EmployeeEntity employeeEntity) {
-		// TODO Auto-generated method stub
-		return employeeRepository.save(employeeEntity);
-	}
+    @Override
+    public EmployeeEntity saveEmployee(EmployeeEntity employeeEntity) {
+        return employeeRepository.save(employeeEntity);
+    }
 
-	@Override
-	public EmployeeEntity updateEmployee(EmployeeEntity employeeEntity) {
-		// TODO Auto-generated method stub
-		return employeeRepository.save(employeeEntity);
-	}
+    @Override
+    public EmployeeEntity updateEmployee(EmployeeEntity employeeEntity) {
+        return employeeRepository.save(employeeEntity);
+    }
 
-	@Override
-	public void deleteEmployee(Long id) {
-		// TODO Auto-generated method stub
-		employeeRepository.deleteById(id);
-	}
+    @Override
+    public void deleteEmployee(Long id) {
+        employeeRepository.deleteById(id);
+    }
 
-	@Override
+	
+
+	/*@Override
 	public EmployeeResponse saveEmployee(EmployeeRequest employeeRequest) {
 		// TODO Auto-generated method stub
 		EmployeeEntity employeeEntity = EmployeeMapper.MAPPER.fromRequestToEntity(employeeRequest);
@@ -67,9 +64,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 	            throw new RuntimeException("Employee Id "+ id + " Not Found!");
 
 	        EmployeeEntity employeeEntity = EmployeeMapper.MAPPER.fromRequestToEntity(employeeRequest);
-	        employeeEntity.setId(id);
+	        EmployeeMapper.MAPPER.fromEntityToResponse(employeeEntity).setId(id);
 	        employeeRepository.save(employeeEntity);
 	        return EmployeeMapper.MAPPER.fromEntityToResponse(employeeEntity);
-	}
+	}*/
 
 }

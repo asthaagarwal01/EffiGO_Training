@@ -27,10 +27,8 @@ public class EmployeeEntity {
 	private String gender;
 	@Column(name = "date_of_birth")
 	private Date dateOfBirth;
-	@Column(name = "adress")
+	@Column(name = "address")
 	private String address;
-	@ManyToOne
-	@JoinColumn(name = "department_id")
-	private DepartmentEntity department;
+	
 
 }
