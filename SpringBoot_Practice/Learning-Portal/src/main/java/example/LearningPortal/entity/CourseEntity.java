@@ -24,6 +24,12 @@ public class CourseEntity {
 
     private String title;
     private String description;
+    
+    @Column(name = "created_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private LocalDateTime createdOn;
+
+    @Column(name = "updated_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private LocalDateTime updatedOn;
 
     @ManyToOne
     @JoinColumn(name = "author_id")
@@ -33,8 +39,6 @@ public class CourseEntity {
     @JoinColumn(name = "category_id")
     private CategoryEntity category;
 
-    @OneToMany(mappedBy = "course")
-    private List<EnrollmentEntity> enrollments;
 
     @OneToMany(mappedBy = "course")
     private List<FavouriteEntity> favorites;

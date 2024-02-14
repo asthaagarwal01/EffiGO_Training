@@ -19,6 +19,12 @@ public class FavouriteEntity {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long favoriteId;
+	
+	@Column(name = "created_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private LocalDateTime createdOn;
+
+    @Column(name = "updated_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private LocalDateTime updatedOn;
 
     @ManyToOne
     @JoinColumn(name = "learner_id")

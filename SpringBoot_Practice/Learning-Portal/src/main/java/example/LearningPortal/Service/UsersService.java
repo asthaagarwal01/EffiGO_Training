@@ -1,22 +1,15 @@
-package example.LearningPortal.Service;
+package example.LearningPortal.service;
 
-import java.time.LocalDateTime;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import java.util.List;
+import java.util.Optional;
 
 import example.LearningPortal.entity.UsersEntity;
-import example.LearningPortal.repository.UsersRepository;
 
-@Service
-public class UsersService {
-	@Autowired
-	private UsersRepository userepo;
-
-	public UsersEntity saveUser(UsersEntity user) {
-		user.setCreatedOn(LocalDateTime.now());
-		user.setUpdatedOn(LocalDateTime.now());
-		return UsersRepository.save(user);
-	}
+public interface UsersService {
+	List<UsersEntity>findAllUsers();
+	Optional<UsersEntity>findById(Long id);
+	UsersEntity saveUsers(UsersEntity user);
+	UsersEntity updateUsers(Long id,UsersEntity updateduser);
+	void deleteUsers(Long id);
 
 }
