@@ -6,6 +6,5 @@ import org.springframework.stereotype.Repository;
 import example.LearningPortal.entity.FavouriteEntity;
 
 @Repository
-public interface FavouriteRepository extends JpaRepository<FavouriteEntity,Long> {
-
+public interface FavouriteRepository extends JpaRepository<FavouriteEntity, Long> {
 }
