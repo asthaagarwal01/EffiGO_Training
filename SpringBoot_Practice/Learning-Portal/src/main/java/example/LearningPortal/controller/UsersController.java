@@ -34,14 +34,14 @@ public class UsersController {
 	}
 	
 	@GetMapping("/{id}")
-	public Optional<UsersEntity>findById(Long id)
+	public Optional<UsersEntity>findById(@PathVariable("id") Long id)
 	{
 		
 		return user.findById(id);
 	}
 	
 	@PostMapping
-	public UsersEntity saveUsers(UsersEntity userToSave) {
+	public UsersEntity saveUsers(@RequestBody UsersEntity userToSave) {
 		
 		return user.saveUsers(userToSave);
 	}
@@ -53,7 +53,7 @@ public class UsersController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteUsers(Long id)
+	public void deleteUsers(@PathVariable("id") Long id)
 	{
 		user.deleteUsers(id);
 	}

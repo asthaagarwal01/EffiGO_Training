@@ -5,8 +5,9 @@ import java.util.Optional;
 
 import example.LearningPortal.entity.CourseEntity;
 
-public interface CourseService {
+public interface CourseService{
 	List<CourseEntity>findAllCourses();
+	
 	Optional<CourseEntity>findById(Long id);
 	CourseEntity saveCourses(CourseEntity user);
 	CourseEntity updateCourses(Long id,CourseEntity updatedcourse);

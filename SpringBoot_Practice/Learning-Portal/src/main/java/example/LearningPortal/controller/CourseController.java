@@ -29,6 +29,7 @@ public class CourseController {
 
     @GetMapping
     public List<CourseEntity> findAllCourses() {
+    	
         return courseService.findAllCourses();
     }
 

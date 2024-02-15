@@ -13,10 +13,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class UsersEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,7 +44,7 @@ public class UsersEntity {
 	private List<FavouriteEntity> favorites;
 
 
-	public LocalDateTime getCreatedOn() {
+	/*public LocalDateTime getCreatedOn() {
 		return createdOn;
 	}
 
@@ -59,7 +61,15 @@ public class UsersEntity {
 
 	public void setUpdatedOn(LocalDateTime updatedOn) {
 		this.updatedOn = updatedOn;
-	}
+	}*/
+
+
+	/*public UsersEntity() {
+		super();
+	}*/
+
+
+	
 	
 	
 }
