@@ -34,6 +34,11 @@ public class CourseController {
 	public Optional<CourseEntity> findCourseById(@PathVariable Long id) {
 		return courseService.findById(id);
 	}
+	
+	@GetMapping("/byCategory/{categoryId}")
+    public List<CourseEntity> getCoursesByCategoryId(@PathVariable Long categoryId) {
+        return courseService.getCoursesByCategoryId(categoryId);
+    }
 
 	@PostMapping
 	public CourseEntity saveCourse(@RequestBody CourseEntity course) {

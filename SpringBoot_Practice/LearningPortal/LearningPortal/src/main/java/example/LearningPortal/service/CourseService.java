@@ -13,6 +13,8 @@ public interface CourseService {
 
 	Optional<CourseEntity> findById(Long id);
 
+	List<CourseEntity> getCoursesByCategoryId(Long categoryId);
+
 	CourseEntity saveCourses(CourseEntity user);
 
 	CourseEntity updateCourses(Long id, CourseEntity updatedcourse);

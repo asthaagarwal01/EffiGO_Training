@@ -17,11 +17,13 @@ public class CourseServiceImpl implements CourseService{
 	private  CourseRepository coursesrepo;
 	
 	
-
-	
 	public List<CourseEntity> findAllCourses() {
 		return coursesrepo.findAll();
 	}
+	
+	public List<CourseEntity> getCoursesByCategoryId(Long categoryId) {
+        return coursesrepo.findByCategoryIdNative(categoryId);
+    }
 
 	
 	public Optional<CourseEntity> findById(Long id) {
