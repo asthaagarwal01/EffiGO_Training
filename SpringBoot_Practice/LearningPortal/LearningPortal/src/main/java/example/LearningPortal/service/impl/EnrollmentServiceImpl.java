@@ -13,10 +13,10 @@ import example.LearningPortal.service.EnrollmentService;
 
 @Service
 public class EnrollmentServiceImpl implements EnrollmentService {
-	
+
 	@Autowired
 	private EnrollmentRepository enrollmentrepo;
-	
+
 	public List<EnrollmentEntity> findAll() {
 		return enrollmentrepo.findAll();
 	}
@@ -24,7 +24,5 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 	public Optional<EnrollmentEntity> findById(Long id) {
 		return enrollmentrepo.findById(id);
 	}
-	
-	
 
 }

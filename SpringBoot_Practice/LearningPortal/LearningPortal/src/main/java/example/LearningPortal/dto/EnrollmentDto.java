@@ -10,9 +10,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EnrollmentDto {
-	 private Long enrollmentId;
-	    private Long learnerId;
-	    private Long courseId;
-	    private LocalDateTime createdOn;
-	    private LocalDateTime updatedOn;
+	private Long enrollmentId;
+	private Long learnerId;
+	private Long courseId;
+	private LocalDateTime createdOn;
+	private LocalDateTime updatedOn;
 }

@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import example.LearningPortal.entity.CategoryEntity;
+
 @Service
 public interface CategoryService {
 	List<CategoryEntity> findAllCategories();

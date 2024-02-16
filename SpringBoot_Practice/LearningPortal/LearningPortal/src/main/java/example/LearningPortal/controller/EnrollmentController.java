@@ -17,12 +17,12 @@ import example.LearningPortal.service.EnrollmentService;
 public class EnrollmentController {
 	@Autowired
 	private EnrollmentService enrollmentService;
-	
+
 	@GetMapping
 	public List<EnrollmentEntity> findAll() {
 		return enrollmentService.findAll();
 	}
-	
+
 	@GetMapping("/{id}")
 	public Optional<EnrollmentEntity> findById(@PathVariable("id") Long id) {
 		return enrollmentService.findById(id);

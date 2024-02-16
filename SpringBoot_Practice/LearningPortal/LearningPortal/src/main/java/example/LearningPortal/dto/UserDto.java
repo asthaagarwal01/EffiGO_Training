@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserDto {
 	private Long userId;
-    private String username;
-    private String role;
-    private LocalDateTime createdOn;
+	private String username;
+	private String role;
+	private LocalDateTime createdOn;
 	private LocalDateTime updatedOn;
 }

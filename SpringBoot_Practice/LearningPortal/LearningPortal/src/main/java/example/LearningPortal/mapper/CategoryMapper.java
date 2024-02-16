@@ -10,7 +10,7 @@ import example.LearningPortal.entity.CategoryEntity;
 public interface CategoryMapper {
 	CategoryMapper INSTANCE = Mappers.getMapper(CategoryMapper.class);
 
-    CategoryDto categoryToCategoryDTO(CategoryEntity category);
+	CategoryDto categoryToCategoryDTO(CategoryEntity category);
 
-    CategoryEntity categoryDTOToCategory(CategoryDto categoryDTO);
+	CategoryEntity categoryDTOToCategory(CategoryDto categoryDTO);
 }

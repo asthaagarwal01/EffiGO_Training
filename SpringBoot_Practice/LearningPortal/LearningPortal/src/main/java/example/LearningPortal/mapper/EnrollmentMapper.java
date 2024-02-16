@@ -7,13 +7,13 @@ import org.mapstruct.factory.Mappers;
 import example.LearningPortal.dto.EnrollmentDto;
 import example.LearningPortal.entity.EnrollmentEntity;
 
-@Mapper(componentModel = "spring", uses = {UserMapper.class, CourseMapper.class})
+@Mapper(componentModel = "spring", uses = { UserMapper.class, CourseMapper.class })
 public interface EnrollmentMapper {
 
-    EnrollmentMapper INSTANCE = Mappers.getMapper(EnrollmentMapper.class);
+	EnrollmentMapper INSTANCE = Mappers.getMapper(EnrollmentMapper.class);
 
-    @Mapping(source = "enrollment.learner.userId", target = "learnerId")
-    EnrollmentDto enrollmentToEnrollmentDTO(EnrollmentEntity enrollment);
+	@Mapping(source = "enrollment.learner.userId", target = "learnerId")
+	EnrollmentDto enrollmentToEnrollmentDTO(EnrollmentEntity enrollment);
 
-    EnrollmentEntity enrollmentDTOToEnrollment(EnrollmentDto enrollmentDTO);
+	EnrollmentEntity enrollmentDTOToEnrollment(EnrollmentDto enrollmentDTO);
 }

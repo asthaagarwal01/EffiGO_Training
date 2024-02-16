@@ -12,38 +12,33 @@ import example.LearningPortal.repository.CourseRepository;
 import example.LearningPortal.service.CourseService;
 
 @Service
-public class CourseServiceImpl implements CourseService{
+public class CourseServiceImpl implements CourseService {
 	@Autowired
-	private  CourseRepository coursesrepo;
-	
-	
+	private CourseRepository coursesrepo;
+
 	public List<CourseEntity> findAllCourses() {
 		return coursesrepo.findAll();
 	}
-	
-	public List<CourseEntity> getCoursesByCategoryId(Long categoryId) {
-        return coursesrepo.findByCategoryIdNative(categoryId);
-    }
 
-	
+	public List<CourseEntity> getCoursesByCategoryId(Long categoryId) {
+		return coursesrepo.findByCategoryIdNative(categoryId);
+	}
+
 	public Optional<CourseEntity> findById(Long id) {
 		return coursesrepo.findById(id);
 	}
 
-	
 	public CourseEntity saveCourses(CourseEntity course) {
 		course.setCreatedOn(LocalDateTime.now());
 		course.setUpdatedOn(LocalDateTime.now());
 		return coursesrepo.save(course);
 	}
 
-	
 	public CourseEntity updateCourses(Long id, CourseEntity updatedcourse) {
 		updatedcourse.setUpdatedOn(LocalDateTime.now());
 		return coursesrepo.save(updatedcourse);
 	}
 
-	
 	public void deleteCourses(Long id) {
 		coursesrepo.deleteById(id);
 	}

@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CategoryDto {
-	 private Long categoryId;
-	    private String name;
-	    private LocalDateTime createdOn;
-		private LocalDateTime updatedOn;
+	private Long categoryId;
+	private String name;
+	private LocalDateTime createdOn;
+	private LocalDateTime updatedOn;
 }

@@ -7,13 +7,13 @@ import org.mapstruct.factory.Mappers;
 import example.LearningPortal.dto.FavoriteDto;
 import example.LearningPortal.entity.FavoriteEntity;
 
-@Mapper(componentModel = "spring", uses = {UserMapper.class, CourseMapper.class})
+@Mapper(componentModel = "spring", uses = { UserMapper.class, CourseMapper.class })
 public interface FavoriteMapper {
 
-    FavoriteMapper INSTANCE = Mappers.getMapper(FavoriteMapper.class);
+	FavoriteMapper INSTANCE = Mappers.getMapper(FavoriteMapper.class);
 
-    @Mapping(source = "favorite.learner.userId", target = "learnerId")
-    FavoriteDto favoriteToFavoriteDTO(FavoriteEntity favorite);
+	@Mapping(source = "favorite.learner.userId", target = "learnerId")
+	FavoriteDto favoriteToFavoriteDTO(FavoriteEntity favorite);
 
-    FavoriteDto favoriteDTOToFavorite(FavoriteDto favoriteDTO);
+	FavoriteDto favoriteDTOToFavorite(FavoriteDto favoriteDTO);
 }

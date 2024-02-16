@@ -22,9 +22,6 @@ public class CategoryController {
 	@Autowired
 	private CategoryService categoryService;
 
-	
-	
-
 	@GetMapping
 	public List<CategoryEntity> findAllCategories() {
 		return categoryService.findAllCategories();

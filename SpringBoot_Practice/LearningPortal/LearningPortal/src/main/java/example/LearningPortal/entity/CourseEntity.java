@@ -21,30 +21,30 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CourseEntity {
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long courseId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long courseId;
 
-    private String title;
-    private String description;
-    
-    @Column(name = "created_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime createdOn;
+	private String title;
+	private String description;
 
-    @Column(name = "updated_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime updatedOn;
+	@Column(name = "created_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	private LocalDateTime createdOn;
 
-    @ManyToOne
-    @JoinColumn(name = "author_id")
-    private UserEntity author;
+	@Column(name = "updated_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	private LocalDateTime updatedOn;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private CategoryEntity category;
+	@ManyToOne
+	@JoinColumn(name = "author_id")
+	private UserEntity author;
 
-    @OneToMany(mappedBy = "course")
-    private List<EnrollmentEntity> enrollments;
+	@ManyToOne
+	@JoinColumn(name = "category_id")
+	private CategoryEntity category;
 
-    @OneToMany(mappedBy = "course")
-    private List<FavoriteEntity> favorites;
+	@OneToMany(mappedBy = "course")
+	private List<EnrollmentEntity> enrollments;
+
+	@OneToMany(mappedBy = "course")
+	private List<FavoriteEntity> favorites;
 
 }

@@ -19,21 +19,21 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class EnrollmentEntity {
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long enrollmentId;
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long enrollmentId;
+
 	@Column(name = "created_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime createdOn;
+	private LocalDateTime createdOn;
 
-    @Column(name = "updated_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime updatedOn;
+	@Column(name = "updated_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	private LocalDateTime updatedOn;
 
-    @ManyToOne
-    @JoinColumn(name = "learner_id")
-    private UserEntity learner;
+	@ManyToOne
+	@JoinColumn(name = "learner_id")
+	private UserEntity learner;
 
-    @ManyToOne
-    @JoinColumn(name = "course_id")
-    private CourseEntity course;
+	@ManyToOne
+	@JoinColumn(name = "course_id")
+	private CourseEntity course;
 
 }

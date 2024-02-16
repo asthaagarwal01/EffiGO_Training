@@ -13,5 +13,4 @@ public interface EnrollmentService {
 
 	Optional<EnrollmentEntity> findById(Long id);
 
-	
 }

@@ -7,14 +7,14 @@ import org.mapstruct.factory.Mappers;
 import example.LearningPortal.dto.CourseDto;
 import example.LearningPortal.entity.CourseEntity;
 
-@Mapper(componentModel = "spring", uses = {CategoryMapper.class, UserMapper.class})
+@Mapper(componentModel = "spring", uses = { CategoryMapper.class, UserMapper.class })
 public interface CourseMapper {
 	CourseMapper INSTANCE = Mappers.getMapper(CourseMapper.class);
 
-    @Mapping(source = "course.author.userId", target = "authorId")
-    @Mapping(source = "course.category.name", target = "category")
-    CourseDto courseToCourseDTO(CourseEntity course);
+	@Mapping(source = "course.author.userId", target = "authorId")
+	@Mapping(source = "course.category.name", target = "category")
+	CourseDto courseToCourseDTO(CourseEntity course);
 
-    CourseEntity courseDTOToCourse(CourseDto courseDTO);
+	CourseEntity courseDTOToCourse(CourseDto courseDTO);
 
 }

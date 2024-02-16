@@ -21,38 +21,33 @@ import example.LearningPortal.service.UserService;
 public class UsersController {
 	@Autowired
 	private UserService user;
-	
-	
-	
+
 	@GetMapping
-	public List<UserEntity>findAllUsers()
-	{
-		
-        return user.findAllUsers();
+	public List<UserEntity> findAllUsers() {
+
+		return user.findAllUsers();
 	}
-	
+
 	@GetMapping("/{id}")
-	public Optional<UserEntity>findById(@PathVariable("id") Long id)
-	{
-		
+	public Optional<UserEntity> findById(@PathVariable("id") Long id) {
+
 		return user.findById(id);
 	}
-	
+
 	@PostMapping
 	public UserEntity saveUsers(@RequestBody UserEntity userToSave) {
-		
+
 		return user.saveUsers(userToSave);
 	}
-	
+
 	@PutMapping("/{id}")
 	public UserEntity updateUsers(@PathVariable Long id, @RequestBody UserEntity userToUpdate) {
-		
-		return user.updateUsers(id,userToUpdate);
+
+		return user.updateUsers(id, userToUpdate);
 	}
-	
+
 	@DeleteMapping("/{id}")
-	public void deleteUsers(@PathVariable("id") Long id)
-	{
+	public void deleteUsers(@PathVariable("id") Long id) {
 		user.deleteUsers(id);
 	}
 }

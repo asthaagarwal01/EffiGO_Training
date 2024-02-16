@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import example.LearningPortal.entity.EnrollmentEntity;
 
 @Repository
-public interface EnrollmentRepository extends JpaRepository<EnrollmentEntity,Long> {
-	
+public interface EnrollmentRepository extends JpaRepository<EnrollmentEntity, Long> {
+
 }

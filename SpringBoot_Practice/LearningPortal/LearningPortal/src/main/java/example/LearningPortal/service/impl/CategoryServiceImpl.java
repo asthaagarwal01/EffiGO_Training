@@ -12,12 +12,10 @@ import example.LearningPortal.repository.CategoryRepository;
 import example.LearningPortal.service.CategoryService;
 
 @Service
-public class CategoryServiceImpl implements CategoryService{
-	
+public class CategoryServiceImpl implements CategoryService {
+
 	@Autowired
 	private CategoryRepository categoryrepo;
-
-
 
 	public List<CategoryEntity> findAllCategories() {
 		return categoryrepo.findAll();

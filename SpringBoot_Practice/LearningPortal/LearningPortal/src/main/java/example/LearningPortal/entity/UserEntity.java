@@ -21,28 +21,28 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserEntity {
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long userId;
 
-    private String username;
-    private String password;
-    
-    @Column(name = "created_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime createdOn;
+	private String username;
+	private String password;
 
-    @Column(name = "updated_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime updatedOn;
-    
-    @Enumerated(EnumType.STRING)
-    private UserRole role;
+	@Column(name = "created_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	private LocalDateTime createdOn;
 
-    @OneToMany(mappedBy = "author")
-    private List<CourseEntity> authoredCourses;
+	@Column(name = "updated_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	private LocalDateTime updatedOn;
 
-    @OneToMany(mappedBy = "learner")
-    private List<EnrollmentEntity> enrollments;
+	@Enumerated(EnumType.STRING)
+	private UserRole role;
 
-    @OneToMany(mappedBy = "learner")
-    private List<FavoriteEntity> favorites;
+	@OneToMany(mappedBy = "author")
+	private List<CourseEntity> authoredCourses;
+
+	@OneToMany(mappedBy = "learner")
+	private List<EnrollmentEntity> enrollments;
+
+	@OneToMany(mappedBy = "learner")
+	private List<FavoriteEntity> favorites;
 
 }

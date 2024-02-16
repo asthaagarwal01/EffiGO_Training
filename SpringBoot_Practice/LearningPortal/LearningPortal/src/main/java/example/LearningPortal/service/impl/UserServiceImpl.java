@@ -12,30 +12,24 @@ import example.LearningPortal.repository.UserRepository;
 import example.LearningPortal.service.UserService;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 	@Autowired
-	private  UserRepository usersrepo;
-	
-	
+	private UserRepository usersrepo;
 
-	
 	public List<UserEntity> findAllUsers() {
 		return usersrepo.findAll();
 	}
 
-	
 	public Optional<UserEntity> findById(Long id) {
 		return usersrepo.findById(id);
 	}
 
-	
 	public UserEntity saveUsers(UserEntity user) {
 		user.setCreatedOn(LocalDateTime.now());
 		user.setUpdatedOn(LocalDateTime.now());
 		return usersrepo.save(user);
 	}
 
-	
 	public UserEntity updateUsers(Long id, UserEntity user) {
 		user.setUpdatedOn(LocalDateTime.now());
 		return usersrepo.save(user);

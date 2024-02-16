@@ -19,20 +19,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class FavoriteEntity {
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long favoriteId;
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long favoriteId;
+
 	@Column(name = "created_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime createdOn;
+	private LocalDateTime createdOn;
 
-    @Column(name = "updated_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime updatedOn;
+	@Column(name = "updated_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	private LocalDateTime updatedOn;
 
-    @ManyToOne
-    @JoinColumn(name = "learner_id")
-    private UserEntity learner;
+	@ManyToOne
+	@JoinColumn(name = "learner_id")
+	private UserEntity learner;
 
-    @ManyToOne
-    @JoinColumn(name = "course_id")
-    private CourseEntity course;
+	@ManyToOne
+	@JoinColumn(name = "course_id")
+	private CourseEntity course;
 }

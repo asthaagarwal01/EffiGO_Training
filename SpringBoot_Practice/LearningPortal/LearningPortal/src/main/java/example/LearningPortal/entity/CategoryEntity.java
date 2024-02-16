@@ -19,18 +19,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CategoryEntity {
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long categoryId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long categoryId;
 
-    private String name;
-    
-    @Column(name = "created_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime createdOn;
+	private String name;
 
-    @Column(name = "updated_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime updatedOn;
+	@Column(name = "created_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	private LocalDateTime createdOn;
 
-    @OneToMany(mappedBy = "category")
-    private List<CourseEntity> courses;
+	@Column(name = "updated_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	private LocalDateTime updatedOn;
+
+	@OneToMany(mappedBy = "category")
+	private List<CourseEntity> courses;
 
 }
