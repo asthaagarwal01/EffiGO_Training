@@ -1,10 +1,12 @@
 package example.LearningPortal.entity;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 import java.util.List;
 
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import jakarta.persistence.Column;
@@ -25,21 +27,27 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "user_Entity", schema = "public")
 public class UserEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "userId")
 	private Long userId;
 
+	@Column(name = "username")
 	private String username;
+	@Column(name = "password")
 	private String password;
 
-	@Column(name = "created_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-	@CreatedDate
-	private LocalDateTime createdOn;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "created_on", nullable = false, updatable = false)
+	//@CreationTimestamp
+	private Timestamp createdOn;
 
-	@Column(name = "updated_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-	@LastModifiedDate
-	private LocalDateTime updatedOn;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "updated_on", nullable = false)
+	//@UpdateTimestamp
+	private Timestamp updatedOn;
 
 	@Enumerated(EnumType.STRING)
 	private UserRole role;

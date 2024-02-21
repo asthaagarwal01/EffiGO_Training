@@ -1,6 +1,6 @@
 package example.LearningPortal.dto;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,6 +13,6 @@ public class FavoriteDto {
 	private long favoriteId;
 	private long learnerId;
 	private long courseId;
-	private LocalDateTime createdOn;
-	private LocalDateTime updatedOn;
+	private Timestamp createdOn;
+	private Timestamp updatedOn;
 }

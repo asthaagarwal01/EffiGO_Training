@@ -3,19 +3,48 @@ package example.LearningPortal.Service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import example.LearningPortal.dto.UserDto;
 import example.LearningPortal.entity.UserEntity;
+import example.LearningPortal.mapper.UserMapper;
+import example.LearningPortal.repository.UserRepository;
 
 @Service
-public interface UserService {
-	List<UserEntity> findAllUsers();
+public class UserService {
+	@Autowired
+	UserMapper userMapper;
 
-	Optional<UserEntity> findById(Long id);
+	@Autowired
+	UserRepository userRepository;
 
-	UserEntity saveUsers(UserEntity user);
+	public List<UserDto> findAllUsers() {
+		List<UserEntity> userEntities = userRepository.findAll();
+		return userMapper.toDto(userEntities);
+	}
 
-	UserEntity updateUsers(Long id, UserEntity updateduser);
+	public UserDto findById(Long id) {
+		Optional<UserEntity> userOptional = userRepository.findById(id);
+		UserEntity user = userOptional.get();
+		return userMapper.toDto(user);
+	}
 
-	void deleteUsers(Long id);
+	public UserDto saveUsers(UserDto user) {
+		UserEntity userEntity = userMapper.toEntity(user);
+		userRepository.save(userEntity);
+		return userMapper.toDto(userEntity);
+	}
+
+	public UserDto updateUsers(UserDto updateduser) {
+		UserEntity userEntity = userMapper.toEntity(updateduser);
+		userRepository.save(userEntity);
+		return userMapper.toDto(userEntity);
+	}
+
+	public void deleteUsers(Long id) {
+		Optional<UserEntity> userOptional = userRepository.findById(id);
+		UserEntity user = userOptional.get();
+		userRepository.delete(user);
+	}
 }

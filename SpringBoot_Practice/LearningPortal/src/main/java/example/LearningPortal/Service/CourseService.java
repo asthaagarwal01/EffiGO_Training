@@ -3,21 +3,75 @@ package example.LearningPortal.Service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import example.LearningPortal.dto.CourseDto;
 import example.LearningPortal.entity.CourseEntity;
+import example.LearningPortal.entity.UserEntity;
+import example.LearningPortal.mapper.CourseMapper;
+import example.LearningPortal.repository.CourseRepository;
+import example.LearningPortal.repository.UserRepository;
+import example.LearningPortal.util.PasswordHashUtil;
 
 @Service
-public interface CourseService {
-	List<CourseEntity> findAllCourses(String username, String password);
+public class CourseService {
 
-	Optional<CourseEntity> findById(Long id);
+	@Autowired
+	CourseMapper courseMapper;
 
-	List<CourseEntity> getCoursesByCategoryId(Long categoryId);
+	@Autowired
+	CourseRepository courseRepository;
 
-	CourseEntity saveCourses(CourseEntity user);
+	@Autowired
+	UserRepository userRepository;
 
-	CourseEntity updateCourses(Long id, CourseEntity updatedcourse);
+	public List<CourseDto> findAllCourses(String username, String password) {
+		Optional<UserEntity> userOptional = userRepository.findByUsername(username);
+		if (userOptional.isPresent()) {
+			UserEntity user = userOptional.get();
+			// Verify the password
+			if (PasswordHashUtil.verifyPassword(password, user.getPasswordHash())) {
 
-	void deleteCourses(Long id);
+				List<CourseEntity> courseEntities = courseRepository.findAll();
+				return courseMapper.toDto(courseEntities);
+			} else {
+
+				return List.of();
+			}
+		} else {
+
+			return List.of();
+		}
+	}
+
+	public CourseDto findById(Long id) {
+		Optional<CourseEntity> courseOptional = courseRepository.findById(id);
+		CourseEntity course = courseOptional.get();
+		return courseMapper.toDto(course);
+	}
+
+	public List<CourseDto> getCoursesByCategoryId(Long categoryId) {
+
+		List<CourseEntity> courses = courseRepository.findByCategoryIdNative(categoryId);
+		return courseMapper.toDto(courses);
+	}
+
+	public CourseDto saveCourses(CourseDto course) {
+		CourseEntity courseEntity = courseMapper.toEntity(course);
+		courseRepository.save(courseEntity);
+		return course;//courseMapper.toDto(courseEntity);
+	}
+
+	public CourseDto updateCourses(CourseDto updatedcourse) {
+		CourseEntity courseEntity = courseMapper.toEntity(updatedcourse);
+		courseRepository.save(courseEntity);
+		return updatedcourse;
+	}
+
+	public void deleteCourses(Long id) {
+		Optional<CourseEntity> courseOptional = courseRepository.findById(id);
+		CourseEntity course = courseOptional.get();
+		courseRepository.delete(course);
+	}
 }

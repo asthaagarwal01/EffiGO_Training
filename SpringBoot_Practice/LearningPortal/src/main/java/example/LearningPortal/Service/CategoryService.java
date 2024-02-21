@@ -3,19 +3,50 @@ package example.LearningPortal.Service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import example.LearningPortal.dto.CategoryDto;
 import example.LearningPortal.entity.CategoryEntity;
+import example.LearningPortal.mapper.CategoryMapper;
+import example.LearningPortal.repository.CategoryRepository;
 
 @Service
-public interface CategoryService {
-	List<CategoryEntity> findAllCategories();
+public class CategoryService {
 
-	Optional<CategoryEntity> findById(Long id);
+	@Autowired
+	CategoryMapper categoryMapper;
 
-	CategoryEntity saveCategories(CategoryEntity category);
+	@Autowired
+	CategoryRepository categoryRepository;
 
-	CategoryEntity updateCategories(Long id, CategoryEntity updatedcategory);
+	public List<CategoryDto> findAllCategories() {
+		List<CategoryEntity> categoryEntities = categoryRepository.findAll();
+		return categoryMapper.toDto(categoryEntities);
+	}
 
-	void deleteCategories(Long id);
+	public CategoryDto findById(Long id) {
+		Optional<CategoryEntity> categoryOptional = categoryRepository.findById(id);
+		CategoryEntity category = categoryOptional.get();
+		return categoryMapper.toDto(category);
+	}
+
+	public CategoryDto saveCategories(CategoryDto category) {
+		CategoryEntity categoryEntity = categoryMapper.toEntity(category);
+		categoryRepository.save(categoryEntity);
+		return categoryMapper.toDto(categoryEntity);
+	}
+
+	public CategoryDto updateCategories(CategoryDto updatedcategory) {
+		CategoryEntity categoryEntity = categoryMapper.toEntity(updatedcategory);
+		categoryRepository.save(categoryEntity);
+		return categoryMapper.toDto(categoryEntity);
+	}
+
+	public void deleteCategories(Long id) {
+		Optional<CategoryEntity> categoryOptional = categoryRepository.findById(id);
+		CategoryEntity category = categoryOptional.get();
+		categoryRepository.delete(category);
+
+	}
 }

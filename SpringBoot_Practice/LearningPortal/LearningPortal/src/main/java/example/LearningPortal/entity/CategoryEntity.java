@@ -30,7 +30,7 @@ public class CategoryEntity {
 	@Column(name = "updated_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private LocalDateTime updatedOn;
 
-	@OneToMany(mappedBy = "category")
-	private List<CourseEntity> courses;
+	/*@OneToMany(mappedBy = "category")
+	private List<CourseEntity> courses;*/
 
 }
