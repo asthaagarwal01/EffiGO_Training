@@ -1,4 +1,4 @@
-package example.LearningPortal.Service;
+package example.learningportal.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,10 +6,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import example.LearningPortal.dto.EnrollmentDto;
-import example.LearningPortal.entity.EnrollmentEntity;
-import example.LearningPortal.mapper.EnrollmentMapper;
-import example.LearningPortal.repository.EnrollmentRepository;
+import example.learningportal.dto.EnrollmentDto;
+import example.learningportal.entity.EnrollmentEntity;
+import example.learningportal.mapper.EnrollmentMapper;
+import example.learningportal.repository.EnrollmentRepository;
 
 @Service
 public class EnrollmentService {

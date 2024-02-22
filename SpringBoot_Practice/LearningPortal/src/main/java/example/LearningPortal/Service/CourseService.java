@@ -1,4 +1,4 @@
-package example.LearningPortal.Service;
+package example.learningportal.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,13 +6,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import example.LearningPortal.dto.CourseDto;
-import example.LearningPortal.entity.CourseEntity;
-import example.LearningPortal.entity.UserEntity;
-import example.LearningPortal.mapper.CourseMapper;
-import example.LearningPortal.repository.CourseRepository;
-import example.LearningPortal.repository.UserRepository;
-import example.LearningPortal.util.PasswordHashUtil;
+import example.learningportal.dto.CourseDto;
+import example.learningportal.entity.CourseEntity;
+import example.learningportal.entity.UserEntity;
+import example.learningportal.mapper.CourseMapper;
+import example.learningportal.repository.CourseRepository;
+import example.learningportal.repository.UserRepository;
+import example.learningportal.util.PasswordHashUtil;
 
 @Service
 public class CourseService {

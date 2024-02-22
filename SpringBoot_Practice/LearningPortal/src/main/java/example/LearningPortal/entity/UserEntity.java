@@ -1,67 +1,70 @@
-package example.LearningPortal.entity;
+package example.learningportal.entity;
 
 import java.sql.Timestamp;
 import java.util.List;
 
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EntityListeners;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@EntityListeners(AuditingEntityListener.class)
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "user_Entity", schema = "public")
+@AllArgsConstructor
+@Table(name = "users")
 public class UserEntity {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "userId")
-	private Long userId;
-
+//	@GeneratedValue(strategy = GenerationType.AUTO, generator = "increment")
+//    @GenericGenerator(name = "increment", strategy = "increment")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "user_id")
+	private long userId;
+	
 	@Column(name = "username")
 	private String username;
+	
 	@Column(name = "password")
 	private String password;
+	
+	@Enumerated(EnumType.STRING)
+	private UserRole role;
+	
+//	@OneToMany(mappedBy = "author")
+//	private List<CourseEntity> authoredCourses;
 
+//	@OneToMany(mappedBy = "user_id")
+//	private List<EnrollmentEntity> enrollments;
+
+	
+	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_on", nullable = false, updatable = false)
-	//@CreationTimestamp
+	@CreationTimestamp
+	@Column(name = "Created_On", nullable = false, updatable = false)
 	private Timestamp createdOn;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_on", nullable = false)
-	//@UpdateTimestamp
+	@UpdateTimestamp
+	@Column(name = "Updated_On", nullable = false)
 	private Timestamp updatedOn;
-
-	@Enumerated(EnumType.STRING)
-	private UserRole role;
-
-	@OneToMany(mappedBy = "author")
-	private List<CourseEntity> authoredCourses;
-
-	@OneToMany(mappedBy = "learner")
-	private List<EnrollmentEntity> enrollments;
-
-	@OneToMany(mappedBy = "learner")
-	private List<FavoriteEntity> favorites;
-
+	
 	public String getPasswordHash() {
 		return password;
 	}
+
 }

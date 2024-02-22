@@ -1,4 +1,4 @@
-package example.LearningPortal.mapper;
+package example.learningportal.mapper;
 
 import java.util.List;
 

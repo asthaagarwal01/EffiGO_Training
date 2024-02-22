@@ -1,13 +1,13 @@
-//package example.LearningPortal;
-//
-//import org.junit.jupiter.api.Test;
-//import org.springframework.boot.test.context.SpringBootTest;
-//
-//@SpringBootTest
-//class LearningPortalApplicationTests {
-//
-//	@Test
-//	void contextLoads() {
-//	}
-//
-//}
+package example.learningportal;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class LearningportalApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}

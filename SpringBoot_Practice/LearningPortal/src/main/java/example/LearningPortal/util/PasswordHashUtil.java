@@ -1,4 +1,4 @@
-package example.LearningPortal.util;
+package example.learningportal.util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

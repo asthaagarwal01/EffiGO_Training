@@ -1,43 +1,48 @@
-package example.LearningPortal.entity;
+package example.learningportal.entity;
 
 import java.sql.Timestamp;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Data
 @Entity
-@EntityListeners(AuditingEntityListener.class)
-@Table(name = "category_entity", schema = "public")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "categories")
 public class CategoryEntity {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "category_id")
-	private Long categoryId;
-
+	private long category_id;
+	
 	@Column(name = "name")
 	private String name;
 
+	@OneToMany(mappedBy = "category")
+	private List<CourseEntity> courses;
+
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_on", nullable = false, updatable = false)
-	//@CreationTimestamp
+	@CreationTimestamp
+	@Column(name = "created_on", updatable = false, nullable = false)
 	private Timestamp createdOn;
-
+	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_on", nullable = false)
-	//@UpdateTimestamp
+	@UpdateTimestamp
+	@Column(name = "updated_on",nullable = false)
 	private Timestamp updatedOn;
-
 }

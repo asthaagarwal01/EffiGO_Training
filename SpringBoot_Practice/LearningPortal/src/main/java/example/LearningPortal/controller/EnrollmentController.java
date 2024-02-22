@@ -1,4 +1,4 @@
-package example.LearningPortal.controller;
+package example.learningportal.controller;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import example.LearningPortal.Service.EnrollmentService;
-import example.LearningPortal.dto.EnrollmentDto;
+import example.learningportal.dto.EnrollmentDto;
+import example.learningportal.service.EnrollmentService;
 
 @RestController
 @RequestMapping("/enrollments")
@@ -29,3 +29,4 @@ public class EnrollmentController {
 	}
 
 }
+

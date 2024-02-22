@@ -1,4 +1,4 @@
-package example.LearningPortal.controller;
+package example.learningportal.controller;
 
 import java.util.List;
 
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import example.LearningPortal.Service.CourseService;
-import example.LearningPortal.dto.CourseDto;
+import example.learningportal.dto.CourseDto;
+import example.learningportal.service.CourseService;
 
 @RestController
 @RequestMapping("/courses")
@@ -54,3 +54,4 @@ public class CourseController {
 		courseService.deleteCourses(id);
 	}
 }
+

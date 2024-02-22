@@ -1,4 +1,4 @@
-package example.LearningPortal.dto;
+package example.learningportal.dto;
 
 import java.sql.Timestamp;
 
@@ -8,13 +8,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class CategoryDto {
-	private Long categoryId;
+	private String category_id;
 	private String name;
 	private Timestamp createdOn;
 	private Timestamp updatedOn;
-
 }

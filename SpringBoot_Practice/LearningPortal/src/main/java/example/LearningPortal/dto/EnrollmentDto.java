@@ -1,18 +1,22 @@
-package example.LearningPortal.dto;
+package example.learningportal.dto;
 
 import java.sql.Timestamp;
 
+import example.learningportal.entity.CourseEntity;
+import example.learningportal.entity.UserEntity;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class EnrollmentDto {
-	private Long enrollmentId;
-	private long learnerId;
-	private long courseId;
-	private Timestamp createdOn;
-	private Timestamp updatedOn;
+	private long enrollment_id;
+	private UserEntity learner_id;
+    private CourseEntity course_id;
+    private Timestamp createdOn;
+    private Timestamp updatedOn;
 }

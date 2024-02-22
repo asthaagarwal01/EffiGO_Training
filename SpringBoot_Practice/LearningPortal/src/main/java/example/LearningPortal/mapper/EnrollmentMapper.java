@@ -18,14 +18,14 @@
 //	EnrollmentEntity enrollmentDTOToEnrollment(EnrollmentDto enrollmentDTO);
 //}
 
-package example.LearningPortal.mapper;
+package example.learningportal.mapper;
 
 import java.util.List;
 
 import org.mapstruct.Mapper;
 
-import example.LearningPortal.dto.EnrollmentDto;
-import example.LearningPortal.entity.EnrollmentEntity;
+import example.learningportal.dto.EnrollmentDto;
+import example.learningportal.entity.EnrollmentEntity;
 
 @Mapper(componentModel = "spring")
 public interface EnrollmentMapper extends EntityMapper<EnrollmentDto, EnrollmentEntity> {

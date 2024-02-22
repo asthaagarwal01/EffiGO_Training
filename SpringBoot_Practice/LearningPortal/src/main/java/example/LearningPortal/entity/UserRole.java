@@ -1,5 +1,5 @@
-package example.LearningPortal.entity;
+package example.learningportal.entity;
 
 public enum UserRole {
-	ADMIN,AUTHOR,LEARNER
+	AUTHOR,ADMIN,LEARNER
 }

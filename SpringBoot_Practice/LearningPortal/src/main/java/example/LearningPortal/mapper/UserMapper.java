@@ -16,14 +16,14 @@
 //
 //	UserEntity userDtoToUserEntity(UserDto userDTO);
 //}
-package example.LearningPortal.mapper;
+package example.learningportal.mapper;
 
 import java.util.List;
 
 import org.mapstruct.Mapper;
 
-import example.LearningPortal.dto.UserDto;
-import example.LearningPortal.entity.UserEntity;
+import example.learningportal.dto.UserDto;
+import example.learningportal.entity.UserEntity;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper extends EntityMapper<UserDto, UserEntity> {

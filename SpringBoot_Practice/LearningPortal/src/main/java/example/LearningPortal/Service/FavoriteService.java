@@ -1,4 +1,4 @@
-package example.LearningPortal.Service;
+package example.learningportal.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,10 +6,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import example.LearningPortal.dto.FavoriteDto;
-import example.LearningPortal.entity.FavoriteEntity;
-import example.LearningPortal.mapper.FavoriteMapper;
-import example.LearningPortal.repository.FavoriteRepository;
+import example.learningportal.dto.FavoriteDto;
+import example.learningportal.entity.FavoriteEntity;
+import example.learningportal.mapper.FavoriteMapper;
+import example.learningportal.repository.FavoriteRepository;
 
 @Service
 public class FavoriteService {

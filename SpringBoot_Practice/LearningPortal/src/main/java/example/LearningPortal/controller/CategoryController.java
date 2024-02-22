@@ -1,4 +1,4 @@
-package example.LearningPortal.controller;
+package example.learningportal.controller;
 
 import java.util.List;
 
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import example.LearningPortal.Service.CategoryService;
-import example.LearningPortal.dto.CategoryDto;
+import example.learningportal.dto.CategoryDto;
+import example.learningportal.service.CategoryService;
 
 @RestController
 @RequestMapping("/categories")

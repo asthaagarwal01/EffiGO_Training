@@ -1,4 +1,4 @@
-package example.LearningPortal.Service;
+package example.learningportal.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,10 +6,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import example.LearningPortal.dto.CategoryDto;
-import example.LearningPortal.entity.CategoryEntity;
-import example.LearningPortal.mapper.CategoryMapper;
-import example.LearningPortal.repository.CategoryRepository;
+import example.learningportal.dto.CategoryDto;
+import example.learningportal.entity.CategoryEntity;
+import example.learningportal.mapper.CategoryMapper;
+import example.learningportal.repository.CategoryRepository;
 
 @Service
 public class CategoryService {

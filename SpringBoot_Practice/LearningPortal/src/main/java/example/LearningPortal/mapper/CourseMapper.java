@@ -19,14 +19,15 @@
 //
 //}
 
-package example.LearningPortal.mapper;
+package example.learningportal.mapper;
 
 import java.util.List;
 
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
-import example.LearningPortal.dto.CourseDto;
-import example.LearningPortal.entity.CourseEntity;
+import example.learningportal.dto.CourseDto;
+import example.learningportal.entity.CourseEntity;
 
 @Mapper(componentModel = "spring")
 
@@ -38,4 +39,7 @@ public interface CourseMapper extends EntityMapper<CourseDto, CourseEntity> {
 	List<CourseDto> toDto(List<CourseEntity> elist);
 
 	List<CourseEntity> toEntity(List<CourseDto> dlist);
+	
+//	@Mapping(source = "category.name", target = "category")
+//    CourseDto toDtoWithCategoryName(CourseEntity e);
 }

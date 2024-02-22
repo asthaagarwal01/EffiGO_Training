@@ -18,14 +18,14 @@
 //	FavoriteDto favoriteDTOToFavorite(FavoriteDto favoriteDTO);
 //}
 
-package example.LearningPortal.mapper;
+package example.learningportal.mapper;
 
 import java.util.List;
 
 import org.mapstruct.Mapper;
 
-import example.LearningPortal.dto.FavoriteDto;
-import example.LearningPortal.entity.FavoriteEntity;
+import example.learningportal.dto.FavoriteDto;
+import example.learningportal.entity.FavoriteEntity;
 
 @Mapper(componentModel = "spring")
 public interface FavoriteMapper extends EntityMapper<FavoriteDto, FavoriteEntity> {

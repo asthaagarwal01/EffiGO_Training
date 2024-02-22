@@ -1,52 +1,52 @@
-package example.LearningPortal.entity;
+package example.learningportal.entity;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EntityListeners;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@EntityListeners(AuditingEntityListener.class)
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "enrollment_Entity", schema = "public")
+@AllArgsConstructor
+@Table(name = "enrollments")
 public class EnrollmentEntity {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "enrollmentId")
-	private Long enrollmentId;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_on", nullable = false, updatable = false)
-	//@CreationTimestamp
-	private Timestamp createdOn;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_on", nullable = false)
-	//@UpdateTimestamp
-	private Timestamp updatedOn;
-
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="enrollmentId")
+	private long enrollmentId;
+	
 	@ManyToOne
-	@JoinColumn(name = "learner_id")
+	@JoinColumn(name="user_id")
 	private UserEntity learner;
 
+	
 	@ManyToOne
-	@JoinColumn(name = "course_id")
+	@JoinColumn(name="course_id")
 	private CourseEntity course;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@CreationTimestamp
+	@Column(name="created_on", updatable=false, nullable=false)
+	private LocalDateTime createdOn;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@UpdateTimestamp
+	@Column(name="updated_on",nullable=false)
+	private LocalDateTime updatedOn;
 }
