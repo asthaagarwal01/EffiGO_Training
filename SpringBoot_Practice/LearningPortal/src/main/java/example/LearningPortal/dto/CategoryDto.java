@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class CategoryDto {
-	private String category_id;
+	private Long category_id;
 	private String name;
 	private Timestamp createdOn;
 	private Timestamp updatedOn;

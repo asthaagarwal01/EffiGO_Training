@@ -14,10 +14,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class CourseDto {
-	private long course_id;
+	private Long course_id;
 	private String title;
 	private String description;
-	private UserEntity user_id;
+	private UserEntity userId;
 	private CategoryEntity category;
 	private Timestamp createdOn;
 	private Timestamp updatedOn;

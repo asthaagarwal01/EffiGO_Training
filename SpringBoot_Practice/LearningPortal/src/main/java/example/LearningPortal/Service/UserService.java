@@ -20,7 +20,7 @@ public class UserService {
 
 	@Autowired
 	UserRepository userRepository;
-	
+
 	Logger logger = LoggerFactory.getLogger(getClass());
 
 	public List<UserDto> findAllUsers() {
@@ -29,7 +29,7 @@ public class UserService {
 	}
 
 	public UserDto findById(Long id) {
-		
+
 		Optional<UserEntity> userOptional = userRepository.findById(id);
 		if (userOptional.isPresent()) {
 
@@ -41,50 +41,35 @@ public class UserService {
 		}
 	}
 
-//	public UserDto findById(Long id) {
-//		Optional<UserEntity> userOptional = userRepository.findById(id);
-//		UserEntity user = userOptional.get();
-//		return userMapper.toDto(user);
-//	}
-
 	public UserDto saveUsers(UserDto user) {
 		UserEntity userEntity = userMapper.toEntity(user);
 		userRepository.save(userEntity);
 		return userMapper.toDto(userEntity);
 	}
-	
+
 	public UserDto updateUsers(UserDto updatedUser) {
-	    Logger logger = LoggerFactory.getLogger(getClass());
-	    UserEntity userEntity = userMapper.toEntity(updatedUser);
+		Logger logger = LoggerFactory.getLogger(getClass());
+		UserEntity userEntity = userMapper.toEntity(updatedUser);
 
-	    Optional<UserEntity> existingUserOptional = userRepository.findById(userEntity.getUserId());
-	    if (existingUserOptional.isPresent()) {
-	       
-	        userEntity = userRepository.save(userEntity);
-	    } else {
-	        logger.error("User with id {} not found", userEntity.getUserId());
-	        throw new RuntimeException("User with id " + userEntity.getUserId() + " not found");
-	    }
-	    return userMapper.toDto(userEntity);
+		Optional<UserEntity> existingUserOptional = userRepository.findById(userEntity.getUserId());
+		if (existingUserOptional.isPresent()) {
+
+			userEntity = userRepository.save(userEntity);
+		} else {
+			logger.error("User with id {} not found", userEntity.getUserId());
+			throw new RuntimeException("User with id " + userEntity.getUserId() + " not found");
+		}
+		return userMapper.toDto(userEntity);
 	}
-
-//	public UserDto updateUsers(UserDto updateduser) {
-//		UserEntity userEntity = userMapper.toEntity(updateduser);
-//
-//		userRepository.save(userEntity);
-//		return userMapper.toDto(userEntity);
-//	}
 
 	public void deleteUsers(Long id) {
 		Optional<UserEntity> userOptional = userRepository.findById(id);
-		if(userOptional.isPresent())
-		{
+		if (userOptional.isPresent()) {
 			UserEntity user = userOptional.get();
 			userRepository.delete(user);
-		}
-		else {
-			logger.error("User with id {} not found",id);
-	        throw new RuntimeException("User with id " + id + " not found");
+		} else {
+			logger.error("User with id {} not found", id);
+			throw new RuntimeException("User with id " + id + " not found");
 		}
 	}
 }

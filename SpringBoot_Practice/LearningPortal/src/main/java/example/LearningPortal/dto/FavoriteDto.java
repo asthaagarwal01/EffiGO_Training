@@ -14,8 +14,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class FavoriteDto {
-	private long favoriteId;
-	private UserEntity learnerId;
+	private Long favoriteId;
+	private UserEntity userId;
     private CourseEntity courseId;
     private Timestamp createdOn;
     private Timestamp updatedOn;

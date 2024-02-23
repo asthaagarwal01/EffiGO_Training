@@ -29,7 +29,7 @@ public class FavoriteEntity {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "favourite_id")
-	private long favourite_id;
+	private Long favourite_id;
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private UserEntity learner;

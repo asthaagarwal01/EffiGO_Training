@@ -30,7 +30,7 @@ public class CourseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "course_id")
-	private long course_id;
+	private Long course_id;
 	
 	@Column(name = "title")
 	private String title;

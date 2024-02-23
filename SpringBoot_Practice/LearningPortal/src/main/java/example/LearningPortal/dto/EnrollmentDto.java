@@ -14,8 +14,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class EnrollmentDto {
-	private long enrollment_id;
-	private UserEntity learner_id;
+	private Long enrollment_id;
+	private UserEntity userId;
     private CourseEntity course_id;
     private Timestamp createdOn;
     private Timestamp updatedOn;

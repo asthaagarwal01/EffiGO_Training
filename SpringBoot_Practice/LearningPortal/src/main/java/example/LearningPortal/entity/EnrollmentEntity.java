@@ -1,6 +1,6 @@
 package example.learningportal.entity;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,7 +29,7 @@ public class EnrollmentEntity {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="enrollmentId")
-	private long enrollmentId;
+	private Long enrollmentId;
 	
 	@ManyToOne
 	@JoinColumn(name="user_id")
@@ -43,10 +43,10 @@ public class EnrollmentEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	@CreationTimestamp
 	@Column(name="created_on", updatable=false, nullable=false)
-	private LocalDateTime createdOn;
+	private Timestamp createdOn;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@UpdateTimestamp
 	@Column(name="updated_on",nullable=false)
-	private LocalDateTime updatedOn;
+	private Timestamp updatedOn;
 }
