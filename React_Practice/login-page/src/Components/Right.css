@@ -1,0 +1,11 @@
+.bg {
+    width: 50%;
+    text-align: center;
+    background: linear-gradient(#ffa023, #ffcb71);
+    /*padding: 2rem;*/
+}
+
+.main {
+    background: linear-gradient(#ffa023, #ffcb71);
+    text-align: center;
+}

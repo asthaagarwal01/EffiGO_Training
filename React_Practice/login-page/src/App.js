@@ -24,7 +24,9 @@ function App() {
     <div className='App'>
       <div className='container'>
         <Left />
-        <Right /></div></div>
+        <Right />
+      </div>
+    </div>
 
   );
 }
