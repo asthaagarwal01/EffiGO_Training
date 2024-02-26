@@ -1,11 +1,17 @@
 .bg {
-    width: 50%;
+
     text-align: center;
     background: linear-gradient(#ffa023, #ffcb71);
-    /*padding: 2rem;*/
+    padding: 5.2rem 3.8rem;
+    border-radius: 2rem;
+
+   
 }
 
 .main {
     background: linear-gradient(#ffa023, #ffcb71);
     text-align: center;
+    width: 50%;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
 }

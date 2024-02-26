@@ -1,0 +1,27 @@
+ul{
+    list-style: none;
+}
+
+ul li a{
+    text-decoration: none;
+    color: black;
+   position: relative;
+}
+
+nav ul
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1.5rem 12rem;
+}
+
+nav ul li::after{
+    content: '';
+    position: absolute;
+    width: 4rem;
+    height: 0.2rem;
+    background-color: #FFA114;
+    margin-top: 1.6rem;
+    margin-left: -4rem
+}
