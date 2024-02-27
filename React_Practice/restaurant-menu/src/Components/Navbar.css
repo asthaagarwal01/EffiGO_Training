@@ -13,10 +13,14 @@ nav ul
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 1.5rem 12rem;
+    padding: 0rem 13rem;
 }
 
-nav ul li::after{
+nav ul li{
+    position: relative;
+}
+
+/*nav ul li::after{
     content: '';
     position: absolute;
     width: 4rem;
@@ -24,4 +28,23 @@ nav ul li::after{
     background-color: #FFA114;
     margin-top: 1.6rem;
     margin-left: -4rem
-}
+}*/
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -30%;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 0;
+    background-color: #FFA114;
+    transition: width 0.3s ease-in-out;
+  }
+
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+
+  
+

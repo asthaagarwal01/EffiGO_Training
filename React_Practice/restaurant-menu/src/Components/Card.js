@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
-import Menu from "./menuApi";
+import React from 'react';
 
+import MenuCard from './MenuCard';
+import "./Card.css"
 
 function Card() {
-    const [menuData, setMenuData] = useState(Menu);
-    console.log(menuData);
+    
     return (
-        <><Card menuData={menuData}/></>
+        <div className='cards'>
+            <MenuCard />
+        </div>
     )
 }
 
