@@ -1,10 +1,13 @@
-import React from 'react';
-import "./menuApi";
+import React, { useState } from 'react';
+import Menu from "./menuApi";
+
 
 function Card() {
-  return (
-    <div></div>
-  )
+    const [menuData, setMenuData] = useState(Menu);
+    console.log(menuData);
+    return (
+        <><Card menuData={menuData}/></>
+    )
 }
 
 export default Card
