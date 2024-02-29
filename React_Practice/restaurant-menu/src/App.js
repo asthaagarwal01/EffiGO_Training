@@ -7,11 +7,9 @@ function App() {
   return (
    
       <div className='container'>
-        <div className='header'>
-          <Navbar/>
-        </div>
-        <h2>Our Menu</h2>
-        <Card/>
+      <Card/>
+        
+        
       </div>
     
   );

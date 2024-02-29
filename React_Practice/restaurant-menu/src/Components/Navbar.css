@@ -2,10 +2,13 @@ ul{
     list-style: none;
 }
 
-ul li a{
+ul li button{
     text-decoration: none;
     color: black;
    position: relative;
+   outline: none;
+   border: none;
+   cursor: pointer;
 }
 
 nav ul
@@ -20,17 +23,9 @@ nav ul li{
     position: relative;
 }
 
-/*nav ul li::after{
-    content: '';
-    position: absolute;
-    width: 4rem;
-    height: 0.2rem;
-    background-color: #FFA114;
-    margin-top: 1.6rem;
-    margin-left: -4rem
-}*/
 
-nav ul li a::after {
+
+nav ul li button::after {
     content: "";
     position: absolute;
     left: 50%;
@@ -42,7 +37,7 @@ nav ul li a::after {
     transition: width 0.3s ease-in-out;
   }
 
-  nav ul li a:hover::after {
+  nav ul li button:hover::after {
     width: 100%;
   }
 

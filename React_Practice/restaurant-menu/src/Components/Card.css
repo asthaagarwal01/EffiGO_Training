@@ -2,3 +2,49 @@
 {
     padding: 1rem 5rem;
 }
+
+ul{
+    list-style: none;
+}
+
+ul li button{
+    text-decoration: none;
+    color: black;
+   position: relative;
+   outline: none;
+   border: none;
+   cursor: pointer;
+}
+
+nav ul
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0rem 13rem;
+}
+
+nav ul li{
+    position: relative;
+}
+
+
+
+nav ul li button::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -30%;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 0;
+    background-color: #FFA114;
+    transition: width 0.3s ease-in-out;
+  }
+
+  nav ul li button:hover::after {
+    width: 100%;
+  }
+
+  
+
